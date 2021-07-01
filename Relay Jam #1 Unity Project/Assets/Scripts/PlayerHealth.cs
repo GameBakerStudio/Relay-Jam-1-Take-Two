@@ -9,12 +9,14 @@ public class PlayerHealth : MonoBehaviour
     public static UnityEvent OnPlayerDeath = new UnityEvent();
 
     public int health;
+    int baseHealth;
 
     Rigidbody2D rb;
     SpriteRenderer rend;
 
     private void Awake()
     {
+        baseHealth = health;
         rend = GetComponent<SpriteRenderer>();
         rb = GetComponent<Rigidbody2D>();
     }
@@ -43,7 +45,9 @@ public class PlayerHealth : MonoBehaviour
 
     private void Death()
     {
+        health = baseHealth;
+        rb.velocity = Vector3.zero;
+        transform.position = RoomHandler.activeRoom.spawnPoint.position;
         OnPlayerDeath.Invoke();
-        Destroy(gameObject);
     }
 }
