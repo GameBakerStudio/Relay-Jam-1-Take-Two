@@ -36,9 +36,6 @@ public class MouseFollow : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetMouseButtonDown(0))
-            isLeftPressed = true;
-        if (Input.GetMouseButtonUp(0))
-            isLeftPressed = false;
+        isLeftPressed = Input.GetMouseButton(0);
     }
 }

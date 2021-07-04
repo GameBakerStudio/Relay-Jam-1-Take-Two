@@ -27,6 +27,7 @@ public class RoomHandler : MonoBehaviour
             Debug.Log("AAAA");
             activeRoom = this;
             vcam.gameObject.SetActive(true);
+            App.EnterRoom(vcam);
         }
     }
     private void OnTriggerExit2D(Collider2D collision)

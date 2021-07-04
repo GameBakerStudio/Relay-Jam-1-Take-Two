@@ -7,30 +7,35 @@ using UnityEngine.Events;
 public class PlayerHealth : MonoBehaviour
 {
     public static UnityEvent OnPlayerDeath = new UnityEvent();
+    public static Action OnTakeDamage;
 
     public int health;
-    int baseHealth;
+    public int baseHealth { get; private set; }
 
+    [SerializeField] private GameObject _deathFX;
+    [SerializeField] private SpriteRenderer rend;
     Rigidbody2D rb;
-    SpriteRenderer rend;
+
+    private bool _isDead;
 
     private void Awake()
     {
         baseHealth = health;
-        rend = GetComponent<SpriteRenderer>();
+        if(rend == null) { rend = GetComponent<SpriteRenderer>(); }
         rb = GetComponent<Rigidbody2D>();
     }
 
     public void TakeDamage(int damage)
     {
         health--;
-        
-        if (health <= 0)
+        OnTakeDamage?.Invoke();
+        if (health <= 0 && !_isDead)
         {
-            Death();
+            _isDead = true;
+            StartCoroutine(Death());
             return;
         }
-
+        
         StartCoroutine(DamageCoroutine());
     }
     IEnumerator DamageCoroutine()
@@ -43,11 +48,32 @@ public class PlayerHealth : MonoBehaviour
         rend.color = Color.white;
     }
 
-    private void Death()
+    private IEnumerator Death()
     {
+        SpawnDeathFX();
+        rend.enabled = false;
+        App.acceptingMoveInput = false;
+        rb.isKinematic = true;
+        rb.velocity = Vector3.zero;
+        OnPlayerDeath.Invoke();
+        yield return new WaitForSeconds(App.deathDelay);
+
+        _isDead = false;
+        rend.enabled = true;
         health = baseHealth;
         rb.velocity = Vector3.zero;
         transform.position = RoomHandler.activeRoom.spawnPoint.position;
-        OnPlayerDeath.Invoke();
+        rb.isKinematic = false;
+        OnTakeDamage?.Invoke();
+        App.acceptingMoveInput = true;
+        
+    }
+
+    private void SpawnDeathFX()
+    {
+        App.SpawnDeathMarker(transform.position);
+        if(_deathFX == null) { return; }
+        var FX = Instantiate(_deathFX, transform.position - Vector3.forward, Quaternion.identity);
+        Destroy(FX.gameObject, 5f);
     }
 }
