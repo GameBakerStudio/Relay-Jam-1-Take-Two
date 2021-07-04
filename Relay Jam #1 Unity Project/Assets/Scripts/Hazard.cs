@@ -7,8 +7,7 @@ public class Hazard : MonoBehaviour
 {
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        var player = collision.gameObject.GetComponent<PlayerHealth>();
-        if (player != null)
+        if(collision.collider.TryGetComponent<PlayerHealth>(out PlayerHealth player))
         {
             player.TakeDamage(1);
         }
