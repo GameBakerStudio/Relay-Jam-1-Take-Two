@@ -94,7 +94,7 @@ public class ReedsPlayerMovement : MonoBehaviour
             {
                 forceVec = forceVec.normalized * _maxPhysicsVector;
             }
-
+            
             _playerRB.velocity = forceVec * _forceMult;
             SpawnLaunchFX(forceVec);
         }
@@ -127,4 +127,11 @@ public class ReedsPlayerMovement : MonoBehaviour
     }
 
     private enum HorizontalHit { right, left, none};
+
+    //Just thought the wall was way too slidy
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if(GetHorizontalHit() != HorizontalHit.none)
+            _playerRB.velocity = new Vector2(0, _playerRB.velocity.y);
+    }
 }

@@ -143,13 +143,13 @@ GameObject:
   m_Component:
   - component: {fileID: 6928846848565981444}
   - component: {fileID: 6928846848565981454}
+  - component: {fileID: 6928846848565981453}
+  - component: {fileID: 657789019}
   - component: {fileID: 6928846848565981440}
   - component: {fileID: 6928846848565981441}
   - component: {fileID: 6928846848565981442}
   - component: {fileID: 6928846848565981443}
   - component: {fileID: 6928846848565981455}
-  - component: {fileID: 6928846848565981453}
-  - component: {fileID: 657789019}
   m_Layer: 7
   m_Name: Player
   m_TagString: Player
@@ -197,6 +197,47 @@ MonoBehaviour:
   health: 2
   _deathFX: {fileID: 7833135921619729463, guid: 86535df17e65ccf41bcb0f3fb992c247, type: 3}
   rend: {fileID: 1649366115}
+--- !u!114 &6928846848565981453
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6928846848565981445}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e3a2cfebff1cc5c48b422b457012dbcd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _playerSpriteRend: {fileID: 1649366115}
+  _playerRB: {fileID: 6928846848565981442}
+  _playerCollider: {fileID: 6928846848565981443}
+  _playerAnimation: {fileID: 657789019}
+  _maxPhysicsVector: 2
+  _forceMult: 4
+  _skinWidth: 0.15
+  _walkableLayers:
+    serializedVersion: 2
+    m_Bits: 64
+  _launchFX: {fileID: 5809403855942407790, guid: b0f6044a53e483845a36b7022cbdc9b5, type: 3}
+  _launchFXOrigin: {fileID: 2507965260188681576}
+--- !u!114 &657789019
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6928846848565981445}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2c3fe6e353a19814c87846561bbf7fd1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _playerAnimator: {fileID: 1649366114}
+  _idleAnimation: Grounded_Idle
+  _wallSlideAnimation: Wall_Slide
+  _launchAnimation: Launch
+  _surfAnimation: Grounded_Slide
 --- !u!114 &6928846848565981440
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -328,47 +369,6 @@ MonoBehaviour:
     m_Extent: {x: 0.34610164, y: 0.34503806, z: 0}
   m_UseBatching: 1
   m_AlwaysUpdate: 0
---- !u!114 &6928846848565981453
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6928846848565981445}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e3a2cfebff1cc5c48b422b457012dbcd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _playerSpriteRend: {fileID: 1649366115}
-  _playerRB: {fileID: 6928846848565981442}
-  _playerCollider: {fileID: 6928846848565981443}
-  _playerAnimation: {fileID: 657789019}
-  _maxPhysicsVector: 2
-  _forceMult: 4
-  _skinWidth: 0.15
-  _walkableLayers:
-    serializedVersion: 2
-    m_Bits: 64
-  _launchFX: {fileID: 5809403855942407790, guid: b0f6044a53e483845a36b7022cbdc9b5, type: 3}
-  _launchFXOrigin: {fileID: 2507965260188681576}
---- !u!114 &657789019
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6928846848565981445}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2c3fe6e353a19814c87846561bbf7fd1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _playerAnimator: {fileID: 1649366114}
-  _idleAnimation: Grounded_Idle
-  _wallSlideAnimation: Wall_Slide
-  _launchAnimation: Launch
-  _surfAnimation: Grounded_Slide
 --- !u!1 &6928846848647026548
 GameObject:
   m_ObjectHideFlags: 0
