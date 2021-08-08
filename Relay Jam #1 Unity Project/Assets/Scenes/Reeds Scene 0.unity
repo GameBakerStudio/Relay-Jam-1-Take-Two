@@ -422,7 +422,7 @@ Grid:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 223967531}
   m_Enabled: 1
-  m_CellSize: {x: 1, y: 1, z: 0}
+  m_CellSize: {x: 1, y: 1, z: 1}
   m_CellGap: {x: 0, y: 0, z: 0}
   m_CellLayout: 0
   m_CellSwizzle: 0
@@ -8750,6 +8750,16 @@ Tilemap:
       m_TileObjectToInstantiateIndex: 65535
       dummyAlignment: 0
       m_AllTileFlags: 1073741825
+  - first: {x: 14, y: 0, z: 0}
+    second:
+      serializedVersion: 2
+      m_TileIndex: 1
+      m_TileSpriteIndex: 1
+      m_TileMatrixIndex: 0
+      m_TileColorIndex: 0
+      m_TileObjectToInstantiateIndex: 65535
+      dummyAlignment: 0
+      m_AllTileFlags: 1073741825
   - first: {x: 17, y: 0, z: 0}
     second:
       serializedVersion: 2
@@ -8964,7 +8974,7 @@ Tilemap:
   m_TileAssetArray:
   - m_RefCount: 3
     m_Data: {fileID: 11400000, guid: 5aeaab0ade7d14e0dab8d0c972d3c369, type: 2}
-  - m_RefCount: 6
+  - m_RefCount: 7
     m_Data: {fileID: 11400000, guid: f931a8753c68f4b579ac655242d12e58, type: 2}
   - m_RefCount: 0
     m_Data: {fileID: 0}
@@ -8973,14 +8983,14 @@ Tilemap:
   m_TileSpriteArray:
   - m_RefCount: 3
     m_Data: {fileID: 21300000, guid: da28f50e6780543eda75669c973236c1, type: 3}
-  - m_RefCount: 6
+  - m_RefCount: 7
     m_Data: {fileID: 21300000, guid: 8c47d582060bf477c9dbc6995f6c2f89, type: 3}
   - m_RefCount: 0
     m_Data: {fileID: 0}
   - m_RefCount: 19
     m_Data: {fileID: 21300000, guid: 9d5501f0575e74ac38ad29342c6d2786, type: 3}
   m_TileMatrixArray:
-  - m_RefCount: 28
+  - m_RefCount: 29
     m_Data:
       e00: 1
       e01: 0
@@ -8999,7 +9009,7 @@ Tilemap:
       e32: 0
       e33: 1
   m_TileColorArray:
-  - m_RefCount: 28
+  - m_RefCount: 29
     m_Data: {r: 1, g: 1, b: 1, a: 1}
   m_TileObjectToInstantiateArray: []
   m_AnimationFrameRate: 1
@@ -9086,10 +9096,10 @@ TilemapCollider2D:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_UsedByEffector: 0
-  m_UsedByComposite: 1
+  m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   m_MaximumTileChangeCount: 1000
-  m_ExtrusionFactor: 0
+  m_ExtrusionFactor: 0.00001
 --- !u!114 &1670017733
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10256,11 +10266,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 936807236484356352, guid: 3a9175ff124b1e54198a73edc1be9c29, type: 3}
       propertyPath: _notes
-      value: Loads the original level 0
+      value: Loads Prinny's Scene
       objectReference: {fileID: 0}
     - target: {fileID: 936807236484356352, guid: 3a9175ff124b1e54198a73edc1be9c29, type: 3}
       propertyPath: _destinationScene
-      value: Scene 0
+      value: Prinny Scene 1
       objectReference: {fileID: 0}
     - target: {fileID: 8032590283193502250, guid: 3a9175ff124b1e54198a73edc1be9c29, type: 3}
       propertyPath: m_RootOrder
