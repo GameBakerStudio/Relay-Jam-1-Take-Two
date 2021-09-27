@@ -73,6 +73,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _notes: Set to reload the current scene for testing purposes
   _destinationScene: Reeds Scene 0
+  requiresKey: 1
+  keyNeededSound: {fileID: 8300000, guid: c05fb4b4120ef7b4fa16288c0fb4bce3, type: 3}
 --- !u!1 &9168609185794012660
 GameObject:
   m_ObjectHideFlags: 0

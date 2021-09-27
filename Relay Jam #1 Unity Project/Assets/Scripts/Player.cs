@@ -29,6 +29,9 @@ public class Player : MonoBehaviour
 	public SpriteRenderer spriteRenderer;
 	public Rigidbody2D rb;
 
+	public AudioClip damageSound;
+	public AudioClip deathSound;
+
 	private void OnEnable()
 	{
 		instance = this;
@@ -72,12 +75,14 @@ public class Player : MonoBehaviour
 		}
 		else
 		{
+			App.PlayVariedAudio(damageSound, transform.position, 0.5f, 0.6f, 0.9f, 1.1f);
 			invulnerableUntilTime = Time.time + DAMAGED_INVULNERABILITY_TIME;
 		}
 	}
 
 	private IEnumerator Death()
 	{
+		App.PlayVariedAudio(deathSound, transform.position, 0.5f, 0.6f, 0.9f, 1.1f);
 		SpawnDeathFX();
 		spriteRenderer.enabled = false;
 		App.acceptingMoveInput = false;
@@ -87,14 +92,15 @@ public class Player : MonoBehaviour
 		yield return new WaitForSeconds(App.deathDelay);
 
 		spriteRenderer.enabled = true;
-		health = START_HEALTH;
+		health = 1;
 
 		rb.velocity = Vector3.zero;
 		transform.position = RoomHandler.activeRoom.spawnPoint.position;
 		rb.isKinematic = false;
-
+		invulnerableUntilTime = Time.time + RESPAWN_INVULNERABILITY_DURATION;
 		App.acceptingMoveInput = true;
 	}
+	const float RESPAWN_INVULNERABILITY_DURATION = 3.0f;
 
 	private void SpawnDeathFX()
 	{
@@ -125,7 +131,7 @@ public class Player : MonoBehaviour
 
 	#region Keys
 
-	public bool hasKeys { get => keys > 0; }
+	public static bool hasKeys { get => keys > 0; }
 
 	public void AddKey(int amount = 1)
 	{

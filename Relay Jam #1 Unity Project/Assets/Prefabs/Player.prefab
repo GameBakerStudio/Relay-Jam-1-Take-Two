@@ -194,8 +194,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 824a5ced2ef24844dab0a2efc0d23c89, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spriteRenderer: {fileID: 6928846848565981441}
+  spriteRenderer: {fileID: 1649366115}
   rb: {fileID: 6928846848565981442}
+  damageSound: {fileID: 8300000, guid: 763927349192dd64aa0144ac58e77ef1, type: 3}
+  deathSound: {fileID: 8300000, guid: 950e56240959a994a85645a63278ad1c, type: 3}
   deathFXPrefab: {fileID: 7833135921619729463, guid: 86535df17e65ccf41bcb0f3fb992c247, type: 3}
 --- !u!114 &6928846848565981453
 MonoBehaviour:
@@ -221,6 +223,7 @@ MonoBehaviour:
     m_Bits: 64
   _launchFX: {fileID: 5809403855942407790, guid: b0f6044a53e483845a36b7022cbdc9b5, type: 3}
   _launchFXOrigin: {fileID: 2507965260188681576}
+  jumpSound: {fileID: 8300000, guid: 51416ddd51d0d5643b8c33f41d853274, type: 3}
 --- !u!114 &657789019
 MonoBehaviour:
   m_ObjectHideFlags: 0

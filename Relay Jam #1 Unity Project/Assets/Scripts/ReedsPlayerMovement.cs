@@ -28,6 +28,9 @@ public class ReedsPlayerMovement : MonoBehaviour
 	[SerializeField] private GameObject _launchFX;
 	[SerializeField] private Transform _launchFXOrigin;
 
+	[Header("Sounds")]
+	public AudioClip jumpSound;
+
 	private bool _grounded;
 	private Camera _mainCamera;
 
@@ -97,10 +100,16 @@ public class ReedsPlayerMovement : MonoBehaviour
 
 			_playerRB.velocity = forceVec * _forceMult;
 			SpawnLaunchFX(forceVec);
-
+			PlayJumpSound();
 			_grounded = false;
 		}
 	}
+
+	private void PlayJumpSound()
+	{
+		App.PlayVariedAudio(jumpSound, transform.position, 0.5f, 0.6f, 0.8f, 1.2f);
+	}
+
 
 	private void SpawnLaunchFX(Vector2 launchDirection)
 	{
@@ -135,5 +144,6 @@ public class ReedsPlayerMovement : MonoBehaviour
 	{
 		if (GetHorizontalHit() != HorizontalHit.none)
 			_playerRB.velocity = new Vector2(0, _playerRB.velocity.y);
+
 	}
 }
