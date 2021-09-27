@@ -48,6 +48,22 @@ public class App : MonoBehaviour
 		yield return FadeToFromWhite(false);
 	}
 
+	private void Update()
+	{
+		CheckForQuit();
+	}
+
+	private static void CheckForQuit()
+	{
+		if (Input.GetKeyDown(KeyCode.Escape))
+		{
+#if UNITY_EDITOR
+			UnityEditor.EditorApplication.isPlaying = false;
+#endif
+			Application.Quit();
+		}
+	}
+
 	public static void DoSceneTransition(AsyncOperation operation)
 	{
 		if (App._singleton == null || _singleton._transitionQuad == null)
