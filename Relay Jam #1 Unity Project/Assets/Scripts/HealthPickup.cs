@@ -11,13 +11,11 @@ public class HealthPickup : MonoBehaviour
 
 	private void OnTriggerEnter2D(Collider2D collision)
 	{
-		// trigger only if the object has playerHealth
-		PlayerHealth playerHealth = collision.gameObject.GetComponent<PlayerHealth>();
-		if (playerHealth == null) return;
+		Player player = collision.GetComponent<Player>();
 
-		if (playerHealth.isHealable)
+		if (player && !Player.isDead)
 		{
-			HealPlayerAndDestroyMe(playerHealth);
+			HealPlayerAndDestroyMe();
 		}
 		else
 		{
@@ -31,9 +29,10 @@ public class HealthPickup : MonoBehaviour
 		App.PlayVariedAudio(rejectedSound, transform.position, 1.0f, 1.0f, 0.9f, 1.1f);
 	}
 
-	private void HealPlayerAndDestroyMe(PlayerHealth playerHealth)
+	private void HealPlayerAndDestroyMe()
 	{
-		playerHealth.Heal(healAmount);
+
+		Player.instance.Heal(healAmount);
 		App.PlayVariedAudio(pickupSound, transform.position, 1.0f, 1.0f, 0.9f, 1.1f);
 		gameObject.SetActive(false);
 		Destroy(gameObject);

@@ -142,7 +142,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6928846848565981444}
-  - component: {fileID: 6928846848565981454}
+  - component: {fileID: 7896172246035912217}
   - component: {fileID: 6928846848565981453}
   - component: {fileID: 657789019}
   - component: {fileID: 6928846848565981440}
@@ -182,7 +182,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &6928846848565981454
+--- !u!114 &7896172246035912217
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -191,12 +191,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 6928846848565981445}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bdf2cf290d5b32949925527712465ea4, type: 3}
+  m_Script: {fileID: 11500000, guid: 824a5ced2ef24844dab0a2efc0d23c89, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 3
-  _deathFX: {fileID: 7833135921619729463, guid: 86535df17e65ccf41bcb0f3fb992c247, type: 3}
-  rend: {fileID: 1649366115}
+  spriteRenderer: {fileID: 6928846848565981441}
+  rb: {fileID: 6928846848565981442}
+  deathFXPrefab: {fileID: 7833135921619729463, guid: 86535df17e65ccf41bcb0f3fb992c247, type: 3}
 --- !u!114 &6928846848565981453
 MonoBehaviour:
   m_ObjectHideFlags: 0
