@@ -15,8 +15,8 @@ TagManager:
   - UI
   - Walkable
   - Player
-  - 
-  - 
+  - Pickups
+  - Postprocessing
   - 
   - 
   - 
@@ -42,4 +42,7 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Cursor
+    uniqueID: 1070703745
     locked: 0
